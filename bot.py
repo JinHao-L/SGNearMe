@@ -139,6 +139,7 @@ def main():
     # Create the Updater with bot's token
     updater = Updater(config.BOT_TOKEN, use_context=True)
     PORT = int(os.environ.get('PORT', '8443'))
+    NAME = "rocky-reaches-93032"
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
@@ -161,7 +162,7 @@ def main():
 
     # startBot
     updater.start_webhook(listen = "0.0.0.0", port = PORT, url_path = config.BOT_TOKEN)
-    updater.bot.setWebhook("https://{}.herokuapp.com/{}".format(NAME, TOKE))
+    updater.bot.setWebhook("https://{}.herokuapp.com/{}".format(NAME, config.BOT_TOKEN))
 
     # Run the bot until bot stopped
     updater.idle()
