@@ -69,7 +69,7 @@ def get_access_token(email : str, password : str) -> str:
         result = response.json()
 
         if (response.status_code == 200) :
-            logging.info("New token expiry on " + result["expiry_timestamp"])
+            logging.info("New token expiry on " + str(result["expiry_timestamp"]))
             # update config file with new token
             update_config_file(result["access_token"], int(result["expiry_timestamp"]))
             return result["access_token"]
